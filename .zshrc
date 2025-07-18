@@ -72,11 +72,11 @@ bindkey '^Y' fzf-history-widget                      # Ctrl+Y for fzf history se
 alias ls='ls --color=auto'  # Colorized ls
 alias ll='ls -lah'          # Long listing with human-readable sizes
 alias la='ls -A'            # List all files, including hidden
-alias vim='nvim'            # Use Neovim instead of Vim
 alias gs='git status'       # Git status
 alias gd='git diff'         # Git diff
 alias gc='git commit'       # Git commit
 alias gp='git push'         # Git push
+alias ga='git add'          # Git add
 
 # Kubernetes completion
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
