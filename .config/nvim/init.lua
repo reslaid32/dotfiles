@@ -19,7 +19,10 @@ require("lazy").setup({
   -- Treesitter
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   -- Nvim-tree
-  { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
   -- Bufferline
   {
     "akinsho/bufferline.nvim",
@@ -124,16 +127,8 @@ require('nvim-tree').setup()
 -- Toggle tree
 vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>")
 
--- Toggle tree focus using nvim-tree API
-local api = require("nvim-tree.api")
-local last_win = nil
-vim.keymap.set("n", "<C-n>", function()
-  if api.tree.is_visible() and vim.api.nvim_get_current_win() == api.tree.get_tree_win() then
-    if last_win and vim.api.nvim_win_is_valid(last_win) then
-      vim.api.nvim_set_current_win(last_win)
-    end
-  else
-    last_win = vim.api.nvim_get_current_win()
-    api.tree.focus()
-  end
-end)
+-- Binds
+vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { silent = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { silent = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { silent = true })
